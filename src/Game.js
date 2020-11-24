@@ -6,7 +6,7 @@ import './index.css'
 class Game extends Component {
     render() { 
         return (
-            <div>
+            <div className='Game'>
                 <Board />
             </div>
         );

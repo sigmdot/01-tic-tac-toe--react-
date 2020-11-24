@@ -1,3 +1,9 @@
+.Game{
+    height: 97vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .Square{
     width: 100px;
     height: 100px;
@@ -11,10 +17,36 @@
 }
 .Square:hover{
     cursor: pointer;
+    background-color: antiquewhite;
 }
+
+.Board{
+    font-family: sans-serif;
+    border: 1px solid black;
+    width: 60%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+.Estado{
+    text-align: center;
+    margin-bottom: 5px;
+}
+.Tablero{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
 .Row{
     display: flex;
 }
-.Board{
-    font-family: sans-serif;
+
+.Reset{
+    padding: 10px;
+    margin-top: 10px;
+    border: 0;
+    background-color: rgb(167, 38, 38);
+    color: white;
 }

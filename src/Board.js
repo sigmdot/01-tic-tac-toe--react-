@@ -17,9 +17,9 @@ const calcularGanador = squares => {
     ]
 
     for (let i = 0; i < lines.length; i++) {
-        const[a,b,c] = lines[i]
+        const [a, b, c] = lines[i]
 
-        if ( 
+        if (
             squares[a] &&
             squares[a] === squares[b] &&
             squares[a] === squares[c]
@@ -37,7 +37,12 @@ class Board extends Component {
         squares: ['', '', '', '', '', '', '', '', ''],
         xIsNext: true
     }
-
+    handleReset = () => {
+        this.setState({
+            squares: ['', '', '', '', '', '', '', '', ''],
+            xIsNext: true
+        })
+    }
     handleClick = number => () => {
 
         if (this.state.squares[number] || calcularGanador(this.state.squares)) {
@@ -60,31 +65,34 @@ class Board extends Component {
 
         let status
 
-        if(winner){
-            status =  `Winner: ${winner}`
+        if (winner) {
+            status = `Ganador: ${winner}`
         } else {
-            status =  `Next step: ${xIsNext ? 'X' : 'O' }`
+            status = `Siguiente en jugar: ${xIsNext ? 'X' : 'O'}`
         }
         return (
 
             <div className='Board'>
-                <h1>{status}</h1>
-                <div className='Row'>
-                    <Square value={squares[0]} onClick={this.handleClick(0)} />
-                    <Square value={squares[1]} onClick={this.handleClick(1)} />
-                    <Square value={squares[2]} onClick={this.handleClick(2)} />
+                <div className='Estado'>
+                    <h1>{status}</h1>
                 </div>
-                <div className='Row'>
-                    <Square value={squares[3]} onClick={this.handleClick(3)} />
-                    <Square value={squares[4]} onClick={this.handleClick(4)} />
-                    <Square value={squares[5]} onClick={this.handleClick(5)} />
+                <div className='Tablero'>
+                    <div className='Row'>
+                        <Square value={squares[0]} onClick={this.handleClick(0)} />
+                        <Square value={squares[1]} onClick={this.handleClick(1)} />
+                        <Square value={squares[2]} onClick={this.handleClick(2)} />
+                    </div>
+                    <div className='Row'>
+                        <Square value={squares[3]} onClick={this.handleClick(3)} />
+                        <Square value={squares[4]} onClick={this.handleClick(4)} />
+                        <Square value={squares[5]} onClick={this.handleClick(5)} />
+                    </div>
+                    <div className='Row'>
+                        <Square value={squares[6]} onClick={this.handleClick(6)} />
+                        <Square value={squares[7]} onClick={this.handleClick(7)} />
+                        <Square value={squares[8]} onClick={this.handleClick(8)} />
+                    </div>
                 </div>
-                <div className='Row'>
-                    <Square value={squares[6]} onClick={this.handleClick(6)} />
-                    <Square value={squares[7]} onClick={this.handleClick(7)} />
-                    <Square value={squares[8]} onClick={this.handleClick(8)} />
-                </div>
-
                 <button onClick={this.handleReset} className='Reset'>Reiniciar</button>
             </div>
 
